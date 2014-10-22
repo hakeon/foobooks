@@ -2,7 +2,7 @@
 
 # Homepage
 Route::get('/', function() {
-   return 'Welcome to Foobooks!';
+   return View::make('index');
 });
 
 Route::get('/list/{query?}', function($query) {
@@ -36,5 +36,5 @@ Route::get('/data', function() {
     // Convert to an array
     $books = json_decode($books,true);
     // Return the file
-    return $books;
+    echo Pre::render($books);
 });
