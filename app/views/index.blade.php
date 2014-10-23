@@ -1,17 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
+@extends('_master')
 
-	<title>Welcome to Foobooks</title>
-	<meta charset="utf-8">
+@section('content')
 
-	<link rel="stylesheet" href="" type="text/css">
+	<form method="GET" action="/list">
+		<label for="query">Search</label>
+		<input type="text" name="query" id="query">
+		<input type="submit" value="Search">
+	</form>
 
-</head>
-<body>
+	<div class="form-group">
+	{{ Form::open(array('url' => '/list', 'method' => 'GET')); }}
+		{{ Form::label('query','Search') }}
+		{{ Form::text('query'); }}
+		{{ Form::submit('Go!', array('class' => 'btn btn-primary')); }}
+	{{ Form::close() }}
+	</div>
 
-	<img src="/images/laravel-foobooks-logo@2x.png" alt="Foobooks logo">
-	<h1>Welcome to Foobooks</h1>
-
-</body>
-</html>
+@stop
